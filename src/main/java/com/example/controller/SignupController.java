@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.application.service.UserApplicationService;
+import com.example.form.GroupOrder;
 import com.example.form.SignupForm;
 
 import lombok.extern.slf4j.Slf4j;
@@ -33,11 +35,12 @@ public class SignupController {
 
 		// ユーザー登録画面に遷移させる
 		return "user/signup";
-	}
+	};
 
 	/* ユーザーの登録処理 */
 	@PostMapping("/signup")
-	public String postSignup(Model model, Locale locale, @ModelAttribute SignupForm form, BindingResult bindingResult) {
+	public String postSignup(Model model, Locale locale, @ModelAttribute @Validated(GroupOrder.class) SignupForm form,
+			BindingResult bindingResult) {
 		// 入力チェック結果
 		if (bindingResult.hasErrors()) {
 			// NGを出してユーザー登録画面に戻す
@@ -48,5 +51,5 @@ public class SignupController {
 
 		// ログイン画面にリダイレクトする
 		return "redirect:/login";
-	}
+	};
 }
