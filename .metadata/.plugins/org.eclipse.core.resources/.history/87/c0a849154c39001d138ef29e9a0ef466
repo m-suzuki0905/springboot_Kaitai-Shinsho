@@ -1,0 +1,5 @@
+package com.example.application.service.config;
+
+public class JavaConfig {
+
+}
