@@ -3,5 +3,10 @@
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.example.repository.UserMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.example.domain.user.service.UserService"/>
     <fullyQualifiedTypeName name="com.example.domain.user.model.MUser"/>
+    <fullyQualifiedTypeName name="org.modelmapper.ModelMapper"/>
 </qualifiedTypeNameHistroy>
