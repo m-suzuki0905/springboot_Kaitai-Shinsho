@@ -32,6 +32,7 @@ public class UserDetailController {
 
 		/* MUser をformに変換 */
 		form = modelMapper.map(user, UserDetailForm.class);
+		form.setSalaryList(user.getSalaryList());
 
 		/* Modelに登録する */
 		model.addAttribute("userDetailForm", form);
