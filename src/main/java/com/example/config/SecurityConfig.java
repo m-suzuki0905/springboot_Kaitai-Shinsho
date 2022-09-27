@@ -26,6 +26,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/user/signup").permitAll()// 直リンク遷移OK
 				.anyRequest().authenticated(); // それ以外は直リンク遷移NG
 
+		// ログイン処理
+		http.formLogin().loginProcessingUrl("/login")// ログイン処理のパス login.htmlのth:action="@{****}"
+				.loginPage("/login")// ログインページの指定 loginController の@GetMapping("*****")
+				.failureUrl("/login?error")// ログイン失敗時の遷移先
+				.usernameParameter("userId")// ログインページのユーザーID
+				.passwordParameter("password")// ログインページのパスワード
+				.defaultSuccessUrl("/user/list", true); // 成功時の遷移先
+
 		// csrf対策を一時的に無効に設定
 		http.csrf().disable();
 	}
