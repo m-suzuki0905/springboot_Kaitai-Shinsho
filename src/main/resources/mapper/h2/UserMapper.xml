@@ -107,5 +107,14 @@
 		m_user
 	where
 		user_id = #{userId}
-	</delete>	
+	</delete>
+	<!--ログインユーザー情報取得  -->
+	<select id="findLoginUser" resultType="MUser">
+		select
+			*
+		from
+			m_user
+		where
+			user_id = #{userId}
+	</select>
 </mapper>
