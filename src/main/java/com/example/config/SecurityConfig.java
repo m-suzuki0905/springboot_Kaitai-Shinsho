@@ -39,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// ログインが不要ページの設定(適用外)
 		http.authorizeRequests().antMatchers("/login").permitAll()// 直リンク遷移OK
 				.antMatchers("/user/signup").permitAll()// 直リンク遷移OK
+				.antMatchers("/user/signup/rest").permitAll()// 直リンク遷移OK
 				.antMatchers("/admin").hasAnyAuthority("ROLE_ADMIN")// 権限制御
 				.anyRequest().authenticated(); // それ以外は直リンク遷移NG
 
